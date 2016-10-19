@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="library/bootstrap/dist/css/bootstrap.min.css" media="screen" title="no title">
+    <link rel="stylesheet" href="Component/Style/master.css" media="screen" title="no title">
+  </head>
+  <body >
+    <div id="side-nav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" data-bind="click:closeNav">&times;</a>
+      <div>
+          <div class="from-group">
+              <input type="text" class="form-control" placeholder="Search hotel ..." data-bind="textInput:query" />
+          </div>
+          <!-- /input-group -->
+          <br>
+          <div class="list-group" data-bind="foreach: listhotel">
+              <li class="list-group-item" data-bind="text: title, click: $parent.onPlaceClicked"></li>
+          </div>
+      </div>
+  </div>
+  <!-- End of side navigation bar -->
+  <button class="btn btn-default navBtn" data-bind="click: openNav"><i class="fa fa-bars"></i>
+  </button>
+    <div id="map"></div>
+      <script>
+      window.handleError = function() {
+         alert("Something went wrong.");
+     }
+      </script>
+    <script src="library/jquery/dist/jquery.min.js" charset="utf-8"></script>
+    <script src="library/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="./Framework/knockout/knockout.js" charset="utf-8"></script>
+    <script src="Component/Script/app.js" charset="utf-8"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyGJHmLKUkvl11lKbyvApJkscxEN4uOSU&callback=initMap"
+    onerror="handleError()"></script>
+  </body>
+</html>
